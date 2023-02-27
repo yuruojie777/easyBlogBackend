@@ -1,5 +1,5 @@
 # EasyBlogBackend
-![Linkedin](https://www.linkedin.com/in/ruojie-yu-461702242/)
+![visitors](https://www.linkedin.com/in/ruojie-yu-461702242/)
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=yuruojie777.easyBlogBackend)
 
 

@@ -1,5 +1,7 @@
 # EasyBlogBackend
-![visitors]([https://visitor-badge.glitch.me/badge?page_id=page.id](https://visitor-badge.glitch.me/badge?page_id=yuruojie777.easyBlogBackend))
+![visitors]([https://visitor-badge.glitch.me/badge?page_id=yuruojie777.easyBlogBackend](https://visitor-badge.glitch.me/badge?page_id=yuruojie777.easyBlogBackend))
+
+
 ## Technology stacks: 
 <ul>
 <li>springboot 3.0.1</li>

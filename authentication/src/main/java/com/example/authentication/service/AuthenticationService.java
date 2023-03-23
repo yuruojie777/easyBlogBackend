@@ -23,12 +23,14 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
                 .name(request.getName())
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                .role(Role.ADMIN)
+                .avatar(null)
                 .build();
         if(!userRepo.findUserByUsername(user.getUsername()).isPresent()){
             userRepo.save(user);
@@ -56,5 +58,9 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
+    }
+
+    public void logout(AuthenticationRequest request) {
+
     }
 }

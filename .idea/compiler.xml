@@ -7,16 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="blog" />
         <module name="customer" />
         <module name="authentication" />
+        <module name="poco" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="authentication" options="" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="authentication" options="-parameters" />
+      <module name="blog" options="" />
       <module name="customer" options="" />
+      <module name="poco" options="-parameters" />
     </option>
   </component>
 </project>

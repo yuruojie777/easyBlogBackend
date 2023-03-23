@@ -10,7 +10,7 @@ public class MyExceptionHandler {
 
     @ExceptionHandler(value =Exception.class)
     public String exceptionHandler(Exception e){
-        log.warn("Exception happened: {}",e);
+        log.warn("Exception happened: {}",e.getMessage());
         return e.getMessage();
     }
 }

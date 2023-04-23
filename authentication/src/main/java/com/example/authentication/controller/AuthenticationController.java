@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
-@CrossOrigin
+
 public class AuthenticationController {
     private final AuthenticationService service;
 
@@ -24,7 +24,6 @@ public class AuthenticationController {
         if(response.getErrorMsg() == null) {
             return ResponseEntity.created(new URI("/register")).body(response);
         }
-
         return ResponseEntity.ok(service.register(request));
     }
 

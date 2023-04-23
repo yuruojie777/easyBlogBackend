@@ -9,6 +9,5 @@ import lombok.Data;
 public class UserDto {
     private String username;
     private String name;
-    private byte[] avatar;
     private Role role;
 }

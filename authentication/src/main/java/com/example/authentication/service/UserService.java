@@ -11,6 +11,5 @@ public interface UserService {
     User getUser(String username);
     User getUserByUsername(String username);
     List<User> getUsers();
-    boolean addAvatarToUser(String username, MultipartFile file);
     boolean updateName(String username, String name);
 }

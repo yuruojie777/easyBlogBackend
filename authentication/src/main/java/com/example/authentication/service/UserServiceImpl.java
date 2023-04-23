@@ -16,7 +16,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@Service @RequiredArgsConstructor @Transactional @Slf4j
+@Service
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
 public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final UserRepo userRepo;
@@ -48,15 +51,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return User.builder().username(user.getUsername())
                 .name(user.getName())
                 .role(user.getRole())
-                .avatar(user.getAvatar())
                 .build();
     }
 
     @Override
     public User getUserByUsername(String username) {
         Optional<User> optional = userRepo.findUserByUsername(username);
-        if(optional.isPresent()) return optional.get();
-        else return null;
+        return optional.orElse(null);
     }
 
     @Override
@@ -75,20 +76,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         else return false;
     }
 
-    @Override
-    public boolean addAvatarToUser(String username, MultipartFile file) {
-        if(ImageValidator.IsValidAvatar(file)) {
-            try {
-                byte[] avatar = file.getInputStream().readAllBytes();
-                User user = userRepo.findUserByUsername(username).get();
-                user.setAvatar(avatar);
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

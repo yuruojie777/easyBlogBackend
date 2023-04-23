@@ -33,8 +33,7 @@ public class UserController {
 
 
     @GetMapping("/{username}")
-    public ResponseEntity<UserDto> getUserByUsername(@AuthenticationPrincipal UserDetails userDetails,
-                                                  @PathVariable String username) {
+    public ResponseEntity<UserDto> getUserByUsername(@PathVariable String username) {
         User user = userService.getUserByUsername(username);
         if(user != null) {
             return ResponseEntity.ok(user.mapToDto());
@@ -50,7 +49,6 @@ public class UserController {
         } else{
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
         }
-
     }
 
     @PutMapping("/name")
@@ -58,13 +56,6 @@ public class UserController {
                                            @RequestParam String name) throws URISyntaxException {
 
         return ResponseEntity.created(new URI("/name")).body(userService.updateName(userDetails.getUsername(), name));
-    }
-
-    @PutMapping("/avatar")
-    public ResponseEntity<Boolean> updateUserAvatar(@AuthenticationPrincipal UserDetails userDetails,
-                                                   @RequestParam MultipartFile file) throws URISyntaxException {
-
-        return ResponseEntity.created(new URI("/avatar")).body(userService.addAvatarToUser(userDetails.getUsername(), file));
     }
 
     @PutMapping("/role")
